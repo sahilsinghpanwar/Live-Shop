@@ -170,8 +170,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       className={cn(
         "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out select-none text-left flex flex-col justify-between",
         isCenter 
-          ? "z-10 bg-gradient-to-br from-[#120f30]/90 to-[#080718]/95 border-violet-500/80 shadow-[0_15px_40px_rgba(139,92,246,0.25)]" 
-          : "z-0 bg-zinc-950/60 text-zinc-400 border-white/5 opacity-30 hover:opacity-60 hover:border-white/10"
+          ? "z-10 bg-gradient-to-br from-[#120f30]/90 to-[#080718]/95 border-violet-500/80 shadow-[0_15px_40px_rgba(139,92,246,0.25)] opacity-100" 
+          : "z-0 bg-zinc-950/60 text-zinc-400 border-white/5 opacity-10 sm:opacity-30 hover:opacity-60 hover:border-white/10"
       )}
       style={{
         width: cardSize,
@@ -179,7 +179,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         clipPath: `polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)`,
         transform: `
           translate(-50%, -50%) 
-          translateX(${(cardSize / 1.5) * position}px)
+          translateX(${(cardSize / (cardSize < 300 ? 2.8 : 1.5)) * position}px)
           translateY(${isCenter ? -65 : position % 2 ? 15 : -15}px)
           rotate(${isCenter ? 0 : position % 2 ? 2.5 : -2.5}deg)
         `,

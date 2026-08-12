@@ -4,10 +4,10 @@ import React from 'react';
 import { Home, Radio, ShoppingBag, ShoppingCart } from 'lucide-react';
 
 const menuItems = [
-  { title: 'Home', icon: <Home className="w-[22px] h-[22px]" />, gradientFrom: '#a955ff', gradientTo: '#ea51ff' },
-  { title: 'Live', icon: <Radio className="w-[22px] h-[22px]" />, gradientFrom: '#FF5E62', gradientTo: '#FF9966' },
-  { title: 'Products', icon: <ShoppingBag className="w-[22px] h-[22px]" />, gradientFrom: '#56CCF2', gradientTo: '#2F80ED' },
-  { title: 'Cart', icon: <ShoppingCart className="w-[22px] h-[22px]" />, gradientFrom: '#80FF72', gradientTo: '#7EE8FA' }
+  { title: 'Home', icon: Home, gradientFrom: '#a955ff', gradientTo: '#ea51ff' },
+  { title: 'Live', icon: Radio, gradientFrom: '#FF5E62', gradientTo: '#FF9966' },
+  { title: 'Products', icon: ShoppingBag, gradientFrom: '#56CCF2', gradientTo: '#2F80ED' },
+  { title: 'Cart', icon: ShoppingCart, gradientFrom: '#80FF72', gradientTo: '#7EE8FA' }
 ];
 
 export default function GradientMenu() {
@@ -30,8 +30,8 @@ export default function GradientMenu() {
   };
 
   return (
-    <ul className="flex gap-4 items-center">
-      {menuItems.map(({ title, icon, gradientFrom, gradientTo }, idx) => (
+    <ul className="flex gap-2 sm:gap-4 items-center">
+      {menuItems.map(({ title, icon: Icon, gradientFrom, gradientTo }, idx) => (
         <li
           key={idx}
           onClick={() => handleNavigation(title)}
@@ -39,7 +39,7 @@ export default function GradientMenu() {
             '--gradient-from': gradientFrom,
             '--gradient-to': gradientTo
           } as React.CSSProperties}
-          className="relative w-[50px] h-[50px] bg-white dark:bg-zinc-900 shadow-md rounded-full flex items-center justify-center transition-all duration-500 hover:w-[150px] hover:shadow-none group cursor-pointer border border-zinc-200/50 dark:border-zinc-800/50"
+          className="relative w-10 h-10 sm:w-[50px] sm:h-[50px] bg-white dark:bg-zinc-900 shadow-md rounded-full flex items-center justify-center transition-all duration-500 hover:w-28 sm:hover:w-[150px] hover:shadow-none group cursor-pointer border border-zinc-200/50 dark:border-zinc-800/50"
         >
           {/* Gradient background on hover */}
           <span className="absolute inset-0 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] opacity-0 transition-all duration-500 group-hover:opacity-100"></span>
@@ -49,11 +49,11 @@ export default function GradientMenu() {
 
           {/* Icon wrapper */}
           <span className="relative z-10 transition-all duration-500 group-hover:scale-0 delay-0 flex items-center justify-center text-zinc-500 dark:text-zinc-400">
-            {icon}
+            <Icon className="w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]" />
           </span>
 
           {/* Title */}
-          <span className="absolute text-white uppercase tracking-wider text-xs font-black transition-all duration-500 scale-0 group-hover:scale-100 delay-150">
+          <span className="absolute text-white uppercase tracking-wider text-[10px] sm:text-xs font-black transition-all duration-500 scale-0 group-hover:scale-100 delay-150">
             {title}
           </span>
         </li>
