@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +25,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&family=Rubik+Spray+Paint&family=Space+Grotesk:wght@400;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
+        <Script 
+          src="https://bennet-ai.vercel.app/chatBot.js" 
+          data-owner-id="usr_137677702734807047"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
