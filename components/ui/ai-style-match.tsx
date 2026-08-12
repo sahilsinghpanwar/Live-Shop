@@ -197,7 +197,7 @@ export function AIStyleMatch({ liveStreams, onClose }: AIStyleMatchProps) {
   };
 
   return (
-    <div className="relative w-full max-w-[400px] mx-auto bg-zinc-950 border border-white/10 rounded-3xl p-8 text-center overflow-hidden flex flex-col justify-between min-h-[480px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-50">
+    <div className="relative w-full max-w-[400px] mx-auto bg-zinc-950 border border-white/10 rounded-3xl p-5 sm:p-8 text-center overflow-hidden flex flex-col justify-between min-h-[480px] max-h-[90vh] overflow-y-auto shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-50">
       
       {/* Blurred image background overlay during steps 2 & 3 */}
       {previewUrl && step >= 2 && (
