@@ -366,7 +366,7 @@ export default function Home() {
       {/* Global Animated Header Navbar with Custom Options */}
       <HeaderNavbar />
       
-      <main className="relative z-10 w-full flex flex-col items-center bg-[#050508] rounded-b-[45px] shadow-[0_20px_50px_rgba(0,0,0,0.95)] border-b border-white/[0.04] overflow-x-hidden">
+      <main className="relative z-10 w-full flex flex-col items-center bg-[#050508] rounded-b-[45px] shadow-[0_20px_50px_rgba(0,0,0,0.95)] border-b border-white/[0.04]">
         
         {/* Hero Copy (using Stagger Animations) */}
         <ContainerStagger animate="visible" whileInView={undefined} className="relative z-20 place-self-center px-6 pt-36 pb-8 text-center flex flex-col items-center max-w-4xl gap-6">

@@ -13,7 +13,7 @@ export function HeaderNavbar() {
       {/* Soft Ambient Background Glow behind the navbar */}
       <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-violet-600/10 via-fuchsia-600/15 to-pink-600/10 blur-xl opacity-80 pointer-events-none" />
 
-      <header className="relative w-full rounded-full border border-white/[0.08] bg-black/45 backdrop-blur-2xl px-3 py-1.5 sm:px-6 sm:py-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center justify-between transition-all duration-300 hover:border-white/[0.15] hover:shadow-[0_20px_60px_rgba(139,92,246,0.15)]">
+      <header className="relative w-full rounded-full border border-white/[0.08] bg-black/45 backdrop-blur-2xl px-6 py-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center justify-between transition-all duration-300 hover:border-white/[0.15] hover:shadow-[0_20px_60px_rgba(139,92,246,0.15)]">
         
         {/* Left: Custom ShopBag Logo */}
         <div className="flex items-center gap-3 group cursor-pointer">
@@ -60,7 +60,7 @@ export function HeaderNavbar() {
           </div>
 
           {/* Logo Typography (ShopBag + ONLINE SHOP) */}
-          <div className="hidden sm:flex flex-col text-left leading-none">
+          <div className="flex flex-col text-left leading-none">
             <span className="font-bold text-[18px] sm:text-[20px] text-white tracking-wide font-space transition-colors group-hover:text-violet-300 duration-300">
               Shop<span className="font-light text-zinc-300 group-hover:text-white transition-colors duration-300">Bag</span>
             </span>
@@ -83,7 +83,7 @@ export function HeaderNavbar() {
               '--gradient-from': '#ffa9c6',
               '--gradient-to': '#f434e2'
             } as React.CSSProperties}
-            className="relative w-10 h-10 sm:w-[50px] sm:h-[50px] bg-white dark:bg-zinc-900 shadow-md rounded-full flex items-center justify-center transition-all duration-500 hover:w-24 sm:hover:w-[130px] hover:shadow-none group cursor-pointer border border-zinc-200/50 dark:border-zinc-800/50 focus:outline-none"
+            className="relative w-[50px] h-[50px] bg-white dark:bg-zinc-900 shadow-md rounded-full flex items-center justify-center transition-all duration-500 hover:w-[130px] hover:shadow-none group cursor-pointer border border-zinc-200/50 dark:border-zinc-800/50 focus:outline-none"
             aria-label="Profile menu"
           >
             {/* Gradient background on hover */}
@@ -93,7 +93,7 @@ export function HeaderNavbar() {
             <span className="absolute top-[8px] inset-x-0 h-full rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] blur-[12px] opacity-0 -z-10 transition-all duration-500 group-hover:opacity-60"></span>
 
             {/* Profile Avatar (scales down to 0 on hover) */}
-            <span className="relative z-10 transition-all duration-500 group-hover:scale-0 delay-0 flex items-center justify-center h-5 w-5 sm:h-6 sm:w-6 rounded-full overflow-hidden border border-white/20">
+            <span className="relative z-10 transition-all duration-500 group-hover:scale-0 delay-0 flex items-center justify-center h-6 w-6 rounded-full overflow-hidden border border-white/20">
               <Image
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
                 alt="User profile avatar"
@@ -104,7 +104,7 @@ export function HeaderNavbar() {
             </span>
 
             {/* Title (scales up to 1 on hover) */}
-            <span className="absolute text-white uppercase tracking-wider text-[10px] sm:text-xs font-black transition-all duration-500 scale-0 group-hover:scale-100 delay-150">
+            <span className="absolute text-white uppercase tracking-wider text-xs font-black transition-all duration-500 scale-0 group-hover:scale-100 delay-150">
               Profile
             </span>
           </button>

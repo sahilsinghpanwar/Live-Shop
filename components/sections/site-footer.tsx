@@ -248,17 +248,6 @@ export function SiteFooter() {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [viewerCount, setViewerCount] = useState(48200);
   const [timeLeft, setTimeLeft] = useState({ m: 14, s: 0 });
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Monitor resize for responsive fixed-reveal layout
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   // Number Formatter Helper
   const fmtNum = (n: number) => {
@@ -295,7 +284,7 @@ export function SiteFooter() {
 
   // GSAP Parallax animations on scroll
   useEffect(() => {
-    if (typeof window === "undefined" || !wrapperRef.current || isMobile) return;
+    if (typeof window === "undefined" || !wrapperRef.current) return;
 
     const ctx = gsap.context(() => {
       // Background Parallax scale and scroll scrub
@@ -388,11 +377,11 @@ export function SiteFooter() {
       {/* Curtain Reveal Bounding Wrapper */}
       <div
         ref={wrapperRef}
-        className="relative h-auto md:h-screen w-full select-none"
-        style={!isMobile ? { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" } : undefined}
+        className="relative h-screen w-full select-none"
+        style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
       >
         {/* Fixed cinematic container behind elements */}
-        <footer className="relative md:fixed md:bottom-0 md:left-0 flex h-auto md:h-screen w-full flex-col justify-between overflow-visible md:overflow-hidden bg-[#050508] text-foreground site-footer-wrapper z-0 py-10 md:py-0">
+        <footer className="fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-[#050508] text-foreground site-footer-wrapper z-0">
           
           {/* Ambient Lighting & Grid System */}
           <div className="footer-aurora absolute left-1/2 top-1/2 h-[70vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[100px] pointer-events-none -z-10" />
